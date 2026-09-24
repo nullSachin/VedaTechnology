@@ -1,0 +1,305 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    color: #1f2937;
+}
+
+.quote-container {
+    width: 100%;
+    max-width: 750px;
+
+    text-align: center;
+}
+
+.quote-container h1 {
+    margin-bottom: 10px;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.subtitle {
+    margin-bottom: 30px;
+
+    font-size: 16px;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================
+   QUOTE CARD
+========================= */
+
+.quote-card {
+    position: relative;
+
+    padding: 50px 45px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20);
+
+    backdrop-filter: blur(10px);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   QUOTE ICON
+========================= */
+
+.quote-icon {
+    font-size: 55px;
+
+    line-height: 1;
+
+    color: #667eea;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   QUOTE TEXT
+========================= */
+
+#quote {
+    max-width: 620px;
+
+    margin: 0 auto 25px;
+
+    font-size: 27px;
+
+    line-height: 1.6;
+
+    font-weight: 500;
+
+    color: #374151;
+}
+
+
+/* =========================
+   AUTHOR
+========================= */
+
+#author {
+    margin-bottom: 35px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #667eea;
+}
+
+
+/* =========================
+   BUTTON CONTAINER
+========================= */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* =========================
+   NEW QUOTE BUTTON
+========================= */
+
+#newQuote {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    box-shadow:
+        0 8px 18px rgba(102, 126, 234, 0.35);
+}
+
+#newQuote:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(102, 126, 234, 0.45);
+}
+
+
+/* =========================
+   SHARE BUTTON
+========================= */
+
+#shareQuote {
+    color: #374151;
+
+    background: #f3f4f6;
+
+    border: 1px solid #e5e7eb;
+}
+
+#shareQuote:hover {
+    transform: translateY(-2px);
+
+    background: #e5e7eb;
+}
+
+
+/* =========================
+   BUTTON ACTIVE
+========================= */
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .quote-container h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .quote-card {
+        padding: 35px 22px;
+    }
+
+    .quote-icon {
+        font-size: 45px;
+    }
+
+    #quote {
+        font-size: 21px;
+
+        line-height: 1.5;
+    }
+
+    #author {
+        font-size: 15px;
+
+        margin-bottom: 25px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    .quote-container h1 {
+        font-size: 26px;
+    }
+
+    .quote-card {
+        padding: 30px 18px;
+    }
+
+    #quote {
+        font-size: 19px;
+    }
+}
