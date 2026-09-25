@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="A responsive image gallery with a modern lightbox preview."
+    >
+
+    <title>Image Gallery | Sachin Kumar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         Header
+    ========================== -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div>
+                <p class="eyebrow">WEB DEVELOPMENT INTERNSHIP</p>
+
+                <h1>Image Gallery</h1>
+
+                <p class="header-description">
+                    A responsive collection of beautiful places and moments.
+                    Click any image to view it in full size.
+                </p>
+            </div>
+
+            <div class="image-count">
+                <span>12</span>
+                <small>Images</small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         Main Gallery
+    ========================== -->
+
+    <main class="gallery-container">
+
+        <section
+            class="gallery"
+            aria-label="Image gallery"
+        >
+
+            <!-- Image 1 -->
+            <figure
+                class="gallery-item"
+                data-index="0"
+                data-title="Mountain Landscape"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+                    alt="Mountain landscape under a blue sky"
+                >
+
+                <figcaption>
+                    <span>Mountain Landscape</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 2 -->
+            <figure
+                class="gallery-item"
+                data-index="1"
+                data-title="Forest Road"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80"
+                    alt="Road passing through a green forest"
+                >
+
+                <figcaption>
+                    <span>Forest Road</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 3 -->
+            <figure
+                class="gallery-item"
+                data-index="2"
+                data-title="Ocean Waves"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+                    alt="Blue ocean waves near a beach"
+                >
+
+                <figcaption>
+                    <span>Ocean Waves</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 4 -->
+            <figure
+                class="gallery-item"
+                data-index="3"
+                data-title="Desert Landscape"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80"
+                    alt="Desert landscape during golden hour"
+                >
+
+                <figcaption>
+                    <span>Desert Landscape</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 5 -->
+            <figure
+                class="gallery-item"
+                data-index="4"
+                data-title="Lake and Mountains"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                    alt="Mountain and lake landscape"
+                >
+
+                <figcaption>
+                    <span>Lake & Mountains</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 6 -->
+            <figure
+                class="gallery-item"
+                data-index="5"
+                data-title="Coastal View"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
+                    alt="Beautiful coastal landscape"
+                >
+
+                <figcaption>
+                    <span>Coastal View</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 7 -->
+            <figure
+                class="gallery-item"
+                data-index="6"
+                data-title="Snow Mountains"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"
+                    alt="Snow covered mountains"
+                >
+
+                <figcaption>
+                    <span>Snow Mountains</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 8 -->
+            <figure
+                class="gallery-item"
+                data-index="7"
+                data-title="Green Valley"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80"
+                    alt="Green valley surrounded by mountains"
+                >
+
+                <figcaption>
+                    <span>Green Valley</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 9 -->
+            <figure
+                class="gallery-item"
+                data-index="8"
+                data-title="Rocky Coast"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1200&q=80"
+                    alt="Rocky coast with a waterfall"
+                >
+
+                <figcaption>
+                    <span>Rocky Coast</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 10 -->
+            <figure
+                class="gallery-item"
+                data-index="9"
+                data-title="Forest Lake"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1200&q=80"
+                    alt="Quiet lake surrounded by forest"
+                >
+
+                <figcaption>
+                    <span>Forest Lake</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 11 -->
+            <figure
+                class="gallery-item"
+                data-index="10"
+                data-title="Mountain Sunset"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
+                    alt="Sunset over a mountain landscape"
+                >
+
+                <figcaption>
+                    <span>Mountain Sunset</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+
+            <!-- Image 12 -->
+            <figure
+                class="gallery-item"
+                data-index="11"
+                data-title="Tropical Beach"
+            >
+                <img
+                    src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80"
+                    alt="Tropical beach with clear water"
+                >
+
+                <figcaption>
+                    <span>Tropical Beach</span>
+                    <span class="view-icon">↗</span>
+                </figcaption>
+            </figure>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         Lightbox / Modal
+    ========================== -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            class="close-button"
+            id="closeButton"
+            aria-label="Close image preview"
+        >
+            &times;
+        </button>
+
+
+        <button
+            class="navigation-button previous"
+            id="previousButton"
+            aria-label="Previous image"
+        >
+            &#10094;
+        </button>
+
+
+        <div class="preview-container">
+
+            <img
+                id="previewImage"
+                src=""
+                alt=""
+            >
+
+            <div class="preview-info">
+
+                <h2 id="previewTitle">
+                    Image Title
+                </h2>
+
+                <p id="previewCounter">
+                    1 / 12
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="navigation-button next"
+            id="nextButton"
+            aria-label="Next image"
+        >
+            &#10095;
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+
+    <footer class="footer">
+
+        <p>
+            Built with HTML, CSS & JavaScript
+        </p>
+
+        <p>
+            © 2026 Sachin Kumar
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
