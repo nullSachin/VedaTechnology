@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A clean and responsive FAQ accordion built using HTML, CSS and JavaScript."
+    >
+
+    <title>FAQ Accordion | Sachin Kumar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         HEADER
+    =============================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a href="#" class="logo">
+                <span class="logo-mark">S</span>
+                <span>Sachin<span class="logo-dot">.</span></span>
+            </a>
+
+            <span class="task-badge">
+                Internship · Task 10
+            </span>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <main>
+
+        <!-- Hero Section -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    WEB DEVELOPMENT INTERNSHIP
+                </span>
+
+                <h1>
+                    Frequently Asked
+                    <span>Questions</span>
+                </h1>
+
+                <p>
+                    Find answers to common questions about web development,
+                    programming, and getting started with building websites.
+                </p>
+
+            </div>
+
+            <div class="hero-decoration">
+                <span>?</span>
+            </div>
+
+        </section>
+
+
+        <!-- FAQ Section -->
+
+        <section class="faq-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        HAVE QUESTIONS?
+                    </span>
+
+                    <h2>
+                        Everything you need to know
+                    </h2>
+                </div>
+
+                <p>
+                    Click on a question to reveal its answer.
+                </p>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <!-- FAQ 1 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-1"
+                    >
+
+                        <span class="question-number">
+                            01
+                        </span>
+
+                        <span class="question-text">
+                            What is HTML and why is it used?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-1"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                HTML stands for HyperText Markup Language.
+                                It is used to structure content on web pages
+                                using elements such as headings, paragraphs,
+                                links, images, forms, and sections.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 2 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-2"
+                    >
+
+                        <span class="question-number">
+                            02
+                        </span>
+
+                        <span class="question-text">
+                            What is CSS used for?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-2"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                CSS stands for Cascading Style Sheets.
+                                It is used to control the appearance and layout
+                                of web pages, including colors, spacing,
+                                typography, animations, and responsive design.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 3 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-3"
+                    >
+
+                        <span class="question-number">
+                            03
+                        </span>
+
+                        <span class="question-text">
+                            What is JavaScript?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-3"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                JavaScript is a programming language commonly
+                                used to add interactivity and dynamic behavior
+                                to websites. It can manipulate HTML elements,
+                                respond to user actions, and update content
+                                without reloading the page.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 4 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-4"
+                    >
+
+                        <span class="question-number">
+                            04
+                        </span>
+
+                        <span class="question-text">
+                            What is responsive web design?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-4"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                Responsive web design is an approach that makes
+                                websites adapt to different screen sizes and
+                                devices. CSS media queries, flexible layouts,
+                                and responsive units are commonly used to create
+                                responsive interfaces.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 5 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-5"
+                    >
+
+                        <span class="question-number">
+                            05
+                        </span>
+
+                        <span class="question-text">
+                            What is the DOM in JavaScript?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-5"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                DOM stands for Document Object Model. It
+                                represents the structure of an HTML document as
+                                objects that JavaScript can access and modify.
+                                This allows developers to dynamically change
+                                content, styles, and elements.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 6 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-6"
+                    >
+
+                        <span class="question-number">
+                            06
+                        </span>
+
+                        <span class="question-text">
+                            What is Git and why do developers use it?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-6"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                Git is a distributed version control system.
+                                Developers use it to track changes in their
+                                code, create branches, collaborate with others,
+                                and manage different versions of a project.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 7 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-7"
+                    >
+
+                        <span class="question-number">
+                            07
+                        </span>
+
+                        <span class="question-text">
+                            What is a frontend developer?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-7"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                A frontend developer builds the part of a
+                                website or application that users interact
+                                with directly. Common frontend technologies
+                                include HTML, CSS, JavaScript, and frameworks
+                                such as React.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 8 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-8"
+                    >
+
+                        <span class="question-number">
+                            08
+                        </span>
+
+                        <span class="question-text">
+                            What is an API?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-8"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                API stands for Application Programming
+                                Interface. It allows different software
+                                applications to communicate with each other
+                                and exchange data or functionality.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 9 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-9"
+                    >
+
+                        <span class="question-number">
+                            09
+                        </span>
+
+                        <span class="question-text">
+                            Why is JavaScript important for web development?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-9"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                JavaScript allows developers to create
+                                interactive and dynamic web experiences.
+                                It can handle user interactions, validate
+                                forms, manipulate the DOM, communicate with
+                                APIs, and power complete web applications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FAQ 10 -->
+
+                <article class="faq-item">
+
+                    <button
+                        class="faq-question"
+                        aria-expanded="false"
+                        aria-controls="answer-10"
+                    >
+
+                        <span class="question-number">
+                            10
+                        </span>
+
+                        <span class="question-text">
+                            How can I improve my web development skills?
+                        </span>
+
+                        <span class="faq-icon">
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="faq-answer"
+                        id="answer-10"
+                    >
+
+                        <div class="answer-content">
+
+                            <p>
+                                The most effective approach is consistent
+                                hands-on practice. Build small projects,
+                                understand the fundamentals, solve problems,
+                                read documentation, debug your own code, and
+                                gradually work on more complex applications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom CTA -->
+
+        <section class="bottom-card">
+
+            <div class="bottom-icon">
+                ?
+            </div>
+
+            <div>
+
+                <h2>
+                    Still have questions?
+                </h2>
+
+                <p>
+                    Keep learning, keep building, and don't hesitate to
+                    explore the documentation.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            Built with HTML, CSS & JavaScript
+        </p>
+
+        <span>
+            © 2026 Sachin Kumar
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
