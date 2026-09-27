@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punjabi Chole Masala — Recipe Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="card" aria-labelledby="recipe-title">
+
+  <header class="card__header">
+    <p class="kicker">Punjabi kitchen · vegetarian</p>
+    <h1 id="recipe-title">Chole Masala</h1>
+    <p class="tagline">Chickpeas simmered slowly in a dark, tomato‑onion masala until the gravy clings to every bite. The kind of Sunday lunch that fills the whole house with the smell of toasted spice.</p>
+
+    <ul class="meta" aria-label="Recipe overview">
+      <li><span class="meta__value">20 min</span><span class="meta__label">prep</span></li>
+      <li><span class="meta__value">45 min</span><span class="meta__label">cook</span></li>
+      <li><span class="meta__value">4</span><span class="meta__label">servings</span></li>
+      <li><span class="meta__value">Medium</span><span class="meta__label">spice</span></li>
+    </ul>
+  </header>
+
+  <figure class="dish">
+    <svg class="dish__art" viewBox="0 0 640 360" role="img" aria-labelledby="dishTitle">
+      <title id="dishTitle">A bowl of chole masala garnished with onion, chilli and coriander, served beside a small dish of rice</title>
+
+      <ellipse cx="320" cy="300" rx="230" ry="18" fill="var(--shadow)"/>
+
+      <!-- rice bowl -->
+      <g>
+        <path d="M60 262 a58 30 0 0 0 116 0 Z" fill="var(--rice-bowl)"/>
+        <ellipse cx="118" cy="262" rx="58" ry="14" fill="var(--rice)"/>
+        <ellipse cx="100" cy="258" rx="7" ry="4.5" fill="var(--rice-grain)"/>
+        <ellipse cx="122" cy="254" rx="7" ry="4.5" fill="var(--rice-grain)"/>
+        <ellipse cx="140" cy="260" rx="7" ry="4.5" fill="var(--rice-grain)"/>
+        <ellipse cx="108" cy="266" rx="7" ry="4.5" fill="var(--rice-grain)"/>
+        <ellipse cx="132" cy="267" rx="7" ry="4.5" fill="var(--rice-grain)"/>
+      </g>
+
+      <!-- main bowl -->
+      <path d="M150 190 a170 92 0 0 0 340 0 Z" fill="var(--bowl)"/>
+      <path d="M150 190 a170 92 0 0 0 340 0 l-6 0 a164 84 0 0 1 -328 0 Z" fill="var(--bowl-shade)"/>
+      <ellipse cx="320" cy="190" rx="170" ry="34" fill="var(--gravy)"/>
+      <ellipse cx="320" cy="190" rx="170" ry="34" fill="none" stroke="var(--gravy-edge)" stroke-width="3"/>
+
+      <!-- chickpeas -->
+      <g fill="var(--chickpea)">
+        <circle cx="250" cy="182" r="9"/>
+        <circle cx="278" cy="196" r="9"/>
+        <circle cx="306" cy="176" r="9"/>
+        <circle cx="334" cy="198" r="9"/>
+        <circle cx="362" cy="180" r="9"/>
+        <circle cx="390" cy="194" r="9"/>
+        <circle cx="222" cy="192" r="8"/>
+        <circle cx="420" cy="186" r="8"/>
+      </g>
+      <g fill="var(--chickpea-shade)">
+        <circle cx="253" cy="185" r="3"/>
+        <circle cx="309" cy="179" r="3"/>
+        <circle cx="365" cy="183" r="3"/>
+        <circle cx="393" cy="197" r="3"/>
+      </g>
+
+      <!-- garnish: onion rings -->
+      <ellipse cx="240" cy="170" rx="16" ry="7" fill="none" stroke="var(--onion)" stroke-width="3"/>
+      <ellipse cx="400" cy="176" rx="14" ry="6" fill="none" stroke="var(--onion)" stroke-width="3"/>
+
+      <!-- garnish: chilli -->
+      <path d="M355 168 q10 -14 24 -10 q-4 12 -18 16 Z" fill="var(--chilli)"/>
+
+      <!-- garnish: coriander leaves -->
+      <g fill="var(--herb)">
+        <path d="M280 168 q6 -10 14 -4 q-2 10 -12 10 Z"/>
+        <path d="M330 172 q6 -10 14 -4 q-2 10 -12 10 Z"/>
+        <path d="M300 160 q6 -10 14 -4 q-2 10 -12 10 Z"/>
+      </g>
+
+      <!-- steam -->
+      <g fill="none" stroke="var(--steam)" stroke-width="4" stroke-linecap="round" opacity="0.55">
+        <path d="M300 130 q-10 -18 0 -30 q10 -12 0 -28"/>
+        <path d="M335 126 q-10 -18 0 -30 q10 -12 0 -28"/>
+      </g>
+    </svg>
+
+    <figcaption>Chole masala, finished with raw onion, green chilli and coriander — served alongside steamed rice.</figcaption>
+  </figure>
+
+  <div class="card__body">
+
+    <section class="ingredients" aria-labelledby="ingredients-title">
+      <h2 id="ingredients-title">Ingredients</h2>
+
+      <h3 class="group-title">For the chickpeas</h3>
+      <ul>
+        <li><span class="qty">1½ cups</span> dried chickpeas, soaked overnight</li>
+        <li><span class="qty">1</span> black tea bag <span class="note">(for colour)</span></li>
+        <li><span class="qty">1 tsp</span> salt</li>
+      </ul>
+
+      <h3 class="group-title">For the masala</h3>
+      <ul>
+        <li><span class="qty">3 tbsp</span> oil or ghee</li>
+        <li><span class="qty">1</span> bay leaf, <span class="qty">2</span> green cardamom</li>
+        <li><span class="qty">1</span> large onion, finely chopped</li>
+        <li><span class="qty">1 tbsp</span> ginger-garlic paste</li>
+        <li><span class="qty">2</span> tomatoes, pureed</li>
+        <li><span class="qty">2 tsp</span> chole masala powder</li>
+        <li><span class="qty">1 tsp</span> Kashmiri red chilli powder</li>
+        <li><span class="qty">½ tsp</span> turmeric</li>
+        <li><span class="qty">1 tsp</span> roasted cumin powder</li>
+        <li><span class="qty">1 tsp</span> amchur <span class="note">(dried mango powder)</span></li>
+      </ul>
+
+      <h3 class="group-title">To finish</h3>
+      <ul>
+        <li>Sliced onion, green chilli, coriander leaves</li>
+        <li>Steamed rice or bhature, to serve</li>
+      </ul>
+    </section>
+
+    <section class="steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">Preparation</h2>
+      <ol>
+        <li>
+          <h3>Cook the chickpeas</h3>
+          <p>Drain the soaked chickpeas and pressure‑cook with the tea bag, salt and 3 cups water for 5–6 whistles, until soft enough to mash between two fingers. Discard the tea bag; keep the cooking liquid.</p>
+        </li>
+        <li>
+          <h3>Build the base</h3>
+          <p>Heat oil in a heavy pot. Add the bay leaf and cardamom and let them sizzle for a few seconds, then add the onion and cook until deep golden — this is what gives the gravy its colour, so don't rush it.</p>
+        </li>
+        <li>
+          <h3>Add aromatics and spice</h3>
+          <p>Stir in the ginger-garlic paste until the raw smell fades, then add the tomato puree and cook until the oil separates at the edges. Add the chole masala, chilli powder and turmeric, and fry for a minute more.</p>
+        </li>
+        <li>
+          <h3>Simmer</h3>
+          <p>Tip in the cooked chickpeas along with their liquid. Bring to a boil, then partially cover and simmer for 20–25 minutes, mashing a few chickpeas against the side of the pot to thicken the gravy.</p>
+        </li>
+        <li>
+          <h3>Finish and serve</h3>
+          <p>Stir in the roasted cumin powder and amchur, and adjust salt. Top with raw onion, green chilli and coriander, and serve hot with rice or bhature.</p>
+        </li>
+      </ol>
+    </section>
+
+  </div>
+
+  <footer class="card__footer">
+    <p><strong>Chef's note —</strong> the tea bag isn't traditionally essential, but it's what gives restaurant‑style chole its deep, almost black‑brown colour without extra spice. Leftovers taste even better the next day.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
