@@ -1,0 +1,522 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+
+    --text-dark: #111827;
+    --text-light: #6b7280;
+
+    --background: #f5f7ff;
+    --card-background: #ffffff;
+
+    --border: #e5e7eb;
+
+    --success: #16a34a;
+
+    --radius: 20px;
+
+    --shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+    --shadow-hover:
+        0 20px 45px rgba(15, 23, 42, 0.14);
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--text-dark);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(79, 70, 229, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(99, 102, 241, 0.10),
+            transparent 35%
+        ),
+        var(--background);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.pricing-section {
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+    padding: 80px 0;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.pricing-header {
+    max-width: 680px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    padding: 7px 14px;
+
+    border: 1px solid rgba(79, 70, 229, 0.2);
+
+    border-radius: 999px;
+
+    color: var(--primary);
+
+    background: rgba(79, 70, 229, 0.07);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+.pricing-header h1 {
+    margin-bottom: 16px;
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+
+    line-height: 1.15;
+
+    letter-spacing: -0.04em;
+}
+
+.pricing-header p {
+    color: var(--text-light);
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================
+   PRICING CONTAINER
+========================================= */
+
+.pricing-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    align-items: stretch;
+
+    gap: 24px;
+}
+
+
+/* =========================================
+   PRICING CARD
+========================================= */
+
+.pricing-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 34px 30px;
+
+    background: var(--card-background);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-hover);
+
+    border-color: rgba(79, 70, 229, 0.25);
+}
+
+
+/* =========================================
+   POPULAR CARD
+========================================= */
+
+.pricing-card.popular {
+    border: 2px solid var(--primary);
+
+    transform: translateY(-12px);
+
+    box-shadow:
+        0 18px 45px rgba(79, 70, 229, 0.18);
+}
+
+.pricing-card.popular:hover {
+    transform: translateY(-18px);
+}
+
+
+/* =========================================
+   POPULAR BADGE
+========================================= */
+
+.popular-badge {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 7px 16px;
+
+    border-radius: 999px;
+
+    color: #ffffff;
+
+    background: var(--primary);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.card-header {
+    margin-bottom: 24px;
+}
+
+.card-header h2 {
+    margin-bottom: 8px;
+
+    font-size: 1.5rem;
+
+    letter-spacing: -0.02em;
+}
+
+.plan-description {
+    min-height: 52px;
+
+    color: var(--text-light);
+
+    font-size: 0.92rem;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.price {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 3px;
+
+    margin-bottom: 28px;
+}
+
+.currency {
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    color: var(--text-dark);
+}
+
+.amount {
+    font-size: 3rem;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -0.05em;
+}
+
+.period {
+    margin-left: 3px;
+
+    color: var(--text-light);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.pricing-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    color: var(--text-dark);
+
+    background: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.pricing-button:hover {
+    color: #ffffff;
+
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: translateY(-2px);
+}
+
+
+/* Primary Button */
+
+.pricing-button.primary {
+    color: #ffffff;
+
+    background: var(--primary);
+
+    border-color: var(--primary);
+}
+
+.pricing-button.primary:hover {
+    background: var(--primary-dark);
+
+    border-color: var(--primary-dark);
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+.features h3 {
+    margin-bottom: 18px;
+
+    font-size: 0.82rem;
+
+    color: var(--text-dark);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.features ul {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    list-style: none;
+}
+
+.features li {
+    color: #4b5563;
+
+    font-size: 0.92rem;
+}
+
+
+/* =========================================
+   FOOTER NOTE
+========================================= */
+
+.pricing-note {
+    margin-top: 35px;
+
+    text-align: center;
+
+    color: var(--text-light);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .pricing-section {
+        padding: 65px 0;
+    }
+
+    .pricing-container {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .pricing-card.popular {
+        transform: none;
+    }
+
+    .pricing-card.popular:hover {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .pricing-section {
+        width: min(94%, 500px);
+
+        padding: 50px 0;
+    }
+
+    .pricing-header {
+        margin-bottom: 40px;
+    }
+
+    .pricing-header h1 {
+        font-size: 2rem;
+    }
+
+    .pricing-header p {
+        font-size: 0.95rem;
+    }
+
+    .pricing-container {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .pricing-card {
+        padding: 30px 24px;
+    }
+
+    .pricing-card.popular {
+        transform: none;
+    }
+
+    .pricing-card:hover,
+    .pricing-card.popular:hover {
+        transform: translateY(-5px);
+    }
+
+    .amount {
+        font-size: 2.6rem;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .pricing-section {
+        width: 92%;
+    }
+
+    .pricing-card {
+        padding: 27px 20px;
+    }
+
+    .pricing-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .popular-badge {
+        font-size: 0.62rem;
+
+        padding: 6px 12px;
+    }
+}
