@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Year 2027 — Countdown Timer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="panel" aria-live="off">
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="panel__header">
+    <p class="eyebrow">Countdown</p>
+    <h1>New Year 2027</h1>
+    <p class="subtitle">The clock is ticking toward midnight on January 1st — a fresh page, a clean slate.</p>
+  </header>
+
+  <section class="timer" id="timer" aria-label="Time remaining">
+    <div class="unit">
+      <span class="value" id="days">00</span>
+      <span class="label">Days</span>
+    </div>
+    <span class="colon" aria-hidden="true">:</span>
+    <div class="unit">
+      <span class="value" id="hours">00</span>
+      <span class="label">Hours</span>
+    </div>
+    <span class="colon" aria-hidden="true">:</span>
+    <div class="unit">
+      <span class="value" id="minutes">00</span>
+      <span class="label">Minutes</span>
+    </div>
+    <span class="colon" aria-hidden="true">:</span>
+    <div class="unit">
+      <span class="value" id="seconds">00</span>
+      <span class="label">Seconds</span>
+    </div>
+  </section>
+
+  <p class="target-note">
+    Counting down to
+    <time datetime="2027-01-01T00:00:00">1 January 2027, 12:00 AM</time>
+  </p>
+
+  <section class="complete" id="completeMessage" hidden>
+    <h2>🎉 It's here — Happy New Year!</h2>
+    <p>The countdown has reached zero. Here's to 2027.</p>
+  </section>
+
+  <footer class="panel__footer">
+    <p>Task 13 · Countdown Timer · Web Development Track</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
