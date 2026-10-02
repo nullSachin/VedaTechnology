@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="panel">
+
+  <header class="panel__header">
+    <div class="panel__heading">
+      <p class="eyebrow">Today</p>
+      <h1>To-Do List</h1>
+    </div>
+    <p class="count" id="taskCount">0 tasks</p>
+  </header>
+
+  <form class="add-form" id="addForm">
+    <input
+      type="text"
+      id="taskInput"
+      placeholder="Add a task — e.g. Review PR #42"
+      aria-label="New task"
+      autocomplete="off"
+      maxlength="120"
+    >
+    <button type="submit" class="add-btn">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span>Add</span>
+    </button>
+  </form>
+
+  <section class="list-wrap">
+    <ul class="task-list" id="taskList" aria-live="polite"></ul>
+
+    <div class="empty-state" id="emptyState">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="8" y="10" width="32" height="30" rx="4" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 20h16M16 26h16M16 32h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <p>No tasks yet — add your first one above.</p>
+    </div>
+  </section>
+
+  <footer class="panel__footer">
+    <p>Task 16 · Simple To-Do List (In-Memory) · Web Development Track</p>
+  </footer>
+
+</main>
+
+<template id="taskTemplate">
+  <li class="task" data-id="">
+    <span class="task__text"></span>
+    <button type="button" class="task__delete" aria-label="Delete task">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </li>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
