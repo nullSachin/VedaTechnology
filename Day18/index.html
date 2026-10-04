@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Character &amp; Word Counter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="panel">
+
+  <header class="panel__header">
+    <p class="eyebrow">Writing Tools</p>
+    <h1>Character &amp; Word Counter</h1>
+    <p class="subtitle">Start typing or paste your text below — every count updates as you go.</p>
+  </header>
+
+  <section class="stats" aria-label="Live text statistics">
+    <div class="stat">
+      <span class="stat__value" id="charCount">0</span>
+      <span class="stat__label">Characters</span>
+    </div>
+    <div class="stat">
+      <span class="stat__value" id="wordCount">0</span>
+      <span class="stat__label">Words</span>
+    </div>
+    <div class="stat">
+      <span class="stat__value" id="sentenceCount">0</span>
+      <span class="stat__label">Sentences</span>
+    </div>
+    <div class="stat stat--muted">
+      <span class="stat__value" id="charNoSpaceCount">0</span>
+      <span class="stat__label">No spaces</span>
+    </div>
+  </section>
+
+  <section class="editor">
+    <div class="editor__bar">
+      <label for="textInput">Your text</label>
+      <button type="button" class="clear-btn" id="clearBtn">Clear</button>
+    </div>
+    <textarea
+      id="textInput"
+      placeholder="Paste or type anything here — a paragraph, an email draft, an essay. The stats above update live as you type."
+      spellcheck="true"
+    ></textarea>
+  </section>
+
+  <footer class="panel__footer">
+    <p>Task 18 · Character &amp; Word Counter · Web Development Track</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
