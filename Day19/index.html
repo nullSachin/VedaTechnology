@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Star Rating Widget | Task 19</title>
+  <meta name="description" content="An interactive 5-star rating component built with HTML, CSS and JavaScript.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="card" aria-labelledby="title">
+      <p class="product">Veda Learning Hub &middot; Web Development Track</p>
+      <h1 id="title">How would you rate this course?</h1>
+      <p class="lead">Your rating helps other learners choose the right track and helps us improve every module.</p>
+
+      <div class="stars" id="stars" role="radiogroup" aria-label="Course rating from 1 to 5 stars">
+        <button class="star" role="radio" aria-checked="false" aria-label="1 star" data-value="1" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6-4.8-4.6 6.6-.9z"/></svg>
+        </button>
+        <button class="star" role="radio" aria-checked="false" aria-label="2 stars" data-value="2" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6-4.8-4.6 6.6-.9z"/></svg>
+        </button>
+        <button class="star" role="radio" aria-checked="false" aria-label="3 stars" data-value="3" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6-4.8-4.6 6.6-.9z"/></svg>
+        </button>
+        <button class="star" role="radio" aria-checked="false" aria-label="4 stars" data-value="4" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6-4.8-4.6 6.6-.9z"/></svg>
+        </button>
+        <button class="star" role="radio" aria-checked="false" aria-label="5 stars" data-value="5" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6-4.8-4.6 6.6-.9z"/></svg>
+        </button>
+      </div>
+
+      <p class="hint" id="hint" aria-live="polite">Hover over a star to preview, click to rate.</p>
+
+      <div class="readout">
+        <div>
+          <span class="readout-label">Your rating</span>
+          <strong class="readout-value"><span id="value">0</span> / 5</strong>
+        </div>
+        <div class="readout-text" id="status" aria-live="polite">Not rated yet</div>
+      </div>
+
+      <button class="reset" id="reset" type="button" disabled>Clear rating</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
