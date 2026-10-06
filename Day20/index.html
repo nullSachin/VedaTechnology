@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Newsletter signup modal built using HTML, CSS and JavaScript."
+    >
+
+    <title>Nova — Newsletter Signup</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         NAVIGATION
+    =============================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-mark">N</span>
+            <span>Nova</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <a href="#subscribe" class="nav-button">
+            Subscribe
+        </a>
+
+    </header>
+
+
+    <!-- ==============================
+         HERO SECTION
+    =============================== -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <span class="badge">
+                    ✦ BUILD • LEARN • CREATE
+                </span>
+
+                <h1>
+                    Build better.
+                    <span>Learn faster.</span>
+                    Create more.
+                </h1>
+
+                <p>
+                    Stay updated with practical web development tips,
+                    useful resources, project ideas, and insights designed
+                    to help you become a better developer.
+                </p>
+
+                <div class="hero-actions">
+
+                    <button class="primary-button" id="openSignup">
+                        Join the Newsletter
+                    </button>
+
+                    <a href="#features" class="secondary-button">
+                        Explore More
+                    </a>
+
+                </div>
+
+                <div class="trust-info">
+
+                    <div class="avatars">
+                        <span>SK</span>
+                        <span>JD</span>
+                        <span>AM</span>
+                    </div>
+
+                    <p>
+                        Join <strong>5,000+ developers</strong>
+                        already learning with us.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+
+            <div class="hero-visual">
+
+                <div class="visual-card">
+
+                    <div class="visual-header">
+
+                        <div>
+                            <span class="small-label">
+                                THIS WEEK
+                            </span>
+
+                            <h3>
+                                Developer Digest
+                            </h3>
+                        </div>
+
+                        <span class="mail-icon">
+                            ✉
+                        </span>
+
+                    </div>
+
+                    <div class="article-preview">
+
+                        <span class="article-tag">
+                            WEB DEVELOPMENT
+                        </span>
+
+                        <h4>
+                            7 Frontend Concepts Every Developer Should Know
+                        </h4>
+
+                        <p>
+                            Practical concepts, examples and resources
+                            delivered directly to your inbox.
+                        </p>
+
+                    </div>
+
+                    <div class="visual-footer">
+
+                        <span>5 min read</span>
+                        <span>•</span>
+                        <span>New every week</span>
+
+                    </div>
+
+                </div>
+
+                <div class="floating-card floating-top">
+                    <span>⚡</span>
+                    Fresh content
+                </div>
+
+                <div class="floating-card floating-bottom">
+                    <span>✓</span>
+                    No spam
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             FEATURES
+        =============================== -->
+
+        <section class="features-section" id="features">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    WHAT YOU'LL GET
+                </span>
+
+                <h2>
+                    Content worth opening your inbox for.
+                </h2>
+
+                <p>
+                    Every newsletter is designed to provide practical
+                    knowledge you can actually use.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        &lt;/&gt;
+                    </div>
+
+                    <h3>
+                        Development Tips
+                    </h3>
+
+                    <p>
+                        Learn useful HTML, CSS, JavaScript and frontend
+                        development techniques.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Curated Resources
+                    </h3>
+
+                    <p>
+                        Discover tools, tutorials and resources selected
+                        to make your learning journey easier.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ↗
+                    </div>
+
+                    <h3>
+                        Project Ideas
+                    </h3>
+
+                    <p>
+                        Get practical project ideas that help you turn
+                        concepts into real-world applications.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             ABOUT SECTION
+        =============================== -->
+
+        <section class="about-section" id="about">
+
+            <div>
+
+                <span class="section-label">
+                    WHY NOVA?
+                </span>
+
+                <h2>
+                    Learn something useful every week.
+                </h2>
+
+            </div>
+
+            <p>
+                Nova is a developer-focused newsletter built around one
+                simple idea: learning should be practical. Every edition
+                focuses on actionable knowledge, development techniques,
+                useful resources and project inspiration without
+                unnecessary noise.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         NEWSLETTER MODAL
+    =============================== -->
+
+    <div class="modal-overlay" id="newsletterModal">
+
+        <div
+            class="newsletter-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+
+            <button
+                class="close-button"
+                id="closeModal"
+                aria-label="Close newsletter signup"
+            >
+                &times;
+            </button>
+
+
+            <div class="modal-icon">
+                ✉
+            </div>
+
+
+            <span class="modal-label">
+                WEEKLY DEVELOPER DIGEST
+            </span>
+
+
+            <h2 id="modalTitle">
+                Build. Learn. Stay ahead.
+            </h2>
+
+
+            <p class="modal-description">
+                Get practical development tips, project inspiration,
+                curated resources and industry insights delivered
+                straight to your inbox.
+            </p>
+
+
+            <form id="newsletterForm" novalidate>
+
+                <label for="email">
+                    Email address
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span>✉</span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                    >
+
+                </div>
+
+                <p class="error-message" id="errorMessage"></p>
+
+
+                <button
+                    type="submit"
+                    class="subscribe-button"
+                >
+                    Subscribe to Nova
+                    <span>→</span>
+                </button>
+
+            </form>
+
+
+            <p class="privacy-text">
+                🔒 No spam. Unsubscribe anytime.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         SUCCESS MESSAGE
+    =============================== -->
+
+    <div class="toast" id="successToast">
+
+        <span class="toast-icon">✓</span>
+
+        <div>
+            <strong>You're subscribed!</strong>
+            <p>Welcome to the Nova community.</p>
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 Nova. Built as part of my Web Development Internship.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
