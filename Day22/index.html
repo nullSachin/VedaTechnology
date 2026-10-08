@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="A responsive image carousel built using HTML, CSS and JavaScript."
+    >
+
+    <title>Explore — Image Carousel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-mark">S</span>
+            <span>Explore</span>
+        </div>
+
+        <div class="task-label">
+            VEDA TECHNOLOGY · TASK 22
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="page-container">
+
+        <section class="hero-section">
+
+            <div class="intro">
+
+                <span class="eyebrow">
+                    WEB DEVELOPMENT INTERNSHIP
+                </span>
+
+                <h1>
+                    Explore the World
+                </h1>
+
+                <p>
+                    A responsive image carousel designed to showcase
+                    beautiful destinations through smooth transitions,
+                    intuitive controls, and automatic slide rotation.
+                </p>
+
+            </div>
+
+
+            <!-- ================= CAROUSEL ================= -->
+
+            <div class="carousel-wrapper">
+
+                <div
+                    class="carousel"
+                    id="carousel"
+                    aria-label="Destination image carousel"
+                >
+
+                    <!-- Slide 1 -->
+                    <article class="slide active">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=85"
+                            alt="Mountain landscape surrounded by clouds"
+                        >
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-number">
+                                01 / 05
+                            </span>
+
+                            <h2>
+                                Mountain Escape
+                            </h2>
+
+                            <p>
+                                Discover peaceful landscapes and
+                                unforgettable mountain views.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Slide 2 -->
+                    <article class="slide">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85"
+                            alt="Beautiful tropical beach"
+                        >
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-number">
+                                02 / 05
+                            </span>
+
+                            <h2>
+                                Tropical Paradise
+                            </h2>
+
+                            <p>
+                                Relax beside crystal-clear water and
+                                endless coastal horizons.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Slide 3 -->
+                    <article class="slide">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1600&q=85"
+                            alt="Beautiful city street in Paris"
+                        >
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-number">
+                                03 / 05
+                            </span>
+
+                            <h2>
+                                City Stories
+                            </h2>
+
+                            <p>
+                                Experience architecture, culture,
+                                history, and vibrant city life.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Slide 4 -->
+                    <article class="slide">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=85"
+                            alt="Snow covered mountain range"
+                        >
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-number">
+                                04 / 05
+                            </span>
+
+                            <h2>
+                                Into the Wild
+                            </h2>
+
+                            <p>
+                                Leave the ordinary behind and reconnect
+                                with nature.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Slide 5 -->
+                    <article class="slide">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=85"
+                            alt="Green valley and mountain landscape"
+                        >
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-number">
+                                05 / 05
+                            </span>
+
+                            <h2>
+                                Hidden Valleys
+                            </h2>
+
+                            <p>
+                                Find inspiration in quiet valleys,
+                                forests, and open skies.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Previous Button -->
+
+                    <button
+                        class="carousel-btn previous"
+                        id="previousBtn"
+                        aria-label="Previous slide"
+                    >
+                        &#8592;
+                    </button>
+
+
+                    <!-- Next Button -->
+
+                    <button
+                        class="carousel-btn next"
+                        id="nextBtn"
+                        aria-label="Next slide"
+                    >
+                        &#8594;
+                    </button>
+
+
+                    <!-- Indicators -->
+
+                    <div
+                        class="indicators"
+                        id="indicators"
+                        aria-label="Slide navigation"
+                    >
+
+                        <button
+                            class="indicator active"
+                            data-slide="0"
+                            aria-label="Go to slide 1"
+                        ></button>
+
+                        <button
+                            class="indicator"
+                            data-slide="1"
+                            aria-label="Go to slide 2"
+                        ></button>
+
+                        <button
+                            class="indicator"
+                            data-slide="2"
+                            aria-label="Go to slide 3"
+                        ></button>
+
+                        <button
+                            class="indicator"
+                            data-slide="3"
+                            aria-label="Go to slide 4"
+                        ></button>
+
+                        <button
+                            class="indicator"
+                            data-slide="4"
+                            aria-label="Go to slide 5"
+                        ></button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION ================= -->
+
+            <div class="carousel-info">
+
+                <div class="info-item">
+                    <span class="info-icon">01</span>
+
+                    <div>
+                        <strong>Interactive</strong>
+                        <p>Previous and next navigation</p>
+                    </div>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-icon">02</span>
+
+                    <div>
+                        <strong>Automatic</strong>
+                        <p>Slides rotate automatically</p>
+                    </div>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-icon">03</span>
+
+                    <div>
+                        <strong>Responsive</strong>
+                        <p>Optimized for every screen</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+            Built by <strong>Sachin Kumar</strong>
+            as part of the Veda Technology Web Development Internship.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
