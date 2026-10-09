@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Calculate tips and split restaurant bills easily with this responsive tip calculator.">
+
+    <title>Tiply — Smart Tip Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a href="#" class="brand" aria-label="Tiply home">
+            <span class="brand-icon">T</span>
+            <span>tiply<span class="brand-dot">.</span></span>
+        </a>
+
+        <span class="topbar-label">
+            SMART BILL SPLITTER
+        </span>
+    </header>
+
+    <main class="page-wrapper">
+        <section class="intro">
+            <span class="eyebrow">
+                <span class="status-dot"></span>
+                SIMPLE. FAIR. EFFORTLESS.
+            </span>
+
+            <h1>Good service deserves<br>
+                <span>good tipping.</span>
+            </h1>
+
+            <p>
+                Calculate your tip, split the bill, and enjoy
+                the moment. Leave the math to us.
+            </p>
+        </section>
+
+        <section class="calculator" aria-label="Tip calculator">
+
+            <div class="calculator-form">
+                <div class="section-heading">
+                    <div>
+                        <span class="step-label">STEP 01</span>
+                        <h2>Bill details</h2>
+                    </div>
+                    <span class="heading-icon" aria-hidden="true">₹</span>
+                </div>
+
+                <form id="tip-form" novalidate>
+                    <div class="field-group">
+                        <label for="bill-amount">Total bill amount</label>
+
+                        <div class="input-shell">
+                            <span class="currency-symbol">₹</span>
+                            <input
+                                type="number"
+                                id="bill-amount"
+                                name="billAmount"
+                                min="0"
+                                max="1000000000"
+                                step="0.01"
+                                placeholder="0.00"
+                                inputmode="decimal"
+                                required
+                            >
+                        </div>
+                        <small class="field-hint">
+                            Enter the amount on your bill
+                        </small>
+                    </div>
+
+                    <div class="field-group">
+                        <label>Choose your tip</label>
+
+                        <div class="tip-options" id="tip-options">
+                            <button type="button" class="tip-button"
+                                data-tip="10" aria-pressed="false">
+                                10%
+                            </button>
+
+                            <button type="button" class="tip-button active"
+                                data-tip="15" aria-pressed="true">
+                                15%
+                                <span class="popular-tag">POPULAR</span>
+                            </button>
+
+                            <button type="button" class="tip-button"
+                                data-tip="18" aria-pressed="false">
+                                18%
+                            </button>
+
+                            <button type="button" class="tip-button"
+                                data-tip="20" aria-pressed="false">
+                                20%
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="custom-tip">Custom tip percentage</label>
+
+                        <div class="input-shell percent-shell">
+                            <input
+                                type="number"
+                                id="custom-tip"
+                                min="0"
+                                max="1000"
+                                step="0.1"
+                                placeholder="Enter your own tip"
+                                inputmode="decimal"
+                            >
+                            <span class="percent-symbol">%</span>
+                        </div>
+                    </div>
+
+                    <div class="field-group people-group">
+                        <div class="people-label">
+                            <div>
+                                <label for="people-count">
+                                    Split between
+                                </label>
+                                <small class="field-hint">
+                                    Number of people sharing the bill
+                                </small>
+                            </div>
+
+                            <div class="people-control">
+                                <button
+                                    type="button"
+                                    class="counter-button"
+                                    id="decrease-people"
+                                    aria-label="Decrease number of people"
+                                >−</button>
+
+                                <input
+                                    type="number"
+                                    id="people-count"
+                                    min="1"
+                                    max="10000"
+                                    step="1"
+                                    value="2"
+                                    inputmode="numeric"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="counter-button"
+                                    id="increase-people"
+                                    aria-label="Increase number of people"
+                                >+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="error-message" class="error-message"
+                        role="alert" aria-live="polite"></p>
+
+                    <button type="reset" class="reset-button">
+                        <span aria-hidden="true">↺</span>
+                        Reset calculator
+                    </button>
+                </form>
+            </div>
+
+            <aside class="results-panel" aria-label="Bill summary">
+                <div class="results-top">
+                    <span class="step-label light-label">YOUR SUMMARY</span>
+                    <span class="summary-badge">LIVE RESULTS</span>
+                </div>
+
+                <h2>Here's the breakdown.</h2>
+                <p class="results-description">
+                    A clear view of what everyone pays.
+                </p>
+
+                <div class="main-result">
+                    <span>Total per person</span>
+                    <strong id="per-person-total"
+                        aria-live="polite">₹0.00</strong>
+                    <small>Including tip</small>
+                </div>
+
+                <div class="result-divider"></div>
+
+                <div class="result-row">
+                    <span>Original bill</span>
+                    <strong id="result-bill">₹0.00</strong>
+                </div>
+
+                <div class="result-row">
+                    <span>Tip amount</span>
+                    <strong id="result-tip">₹0.00</strong>
+                </div>
+
+                <div class="result-row">
+                    <span>Total bill</span>
+                    <strong id="result-total">₹0.00</strong>
+                </div>
+
+                <div class="result-row">
+                    <span>Tip per person</span>
+                    <strong id="result-tip-person">₹0.00</strong>
+                </div>
+
+                <div class="result-row people-result">
+                    <span>People sharing</span>
+                    <strong id="result-people">2 people</strong>
+                </div>
+
+                <div class="result-footer">
+                    <span class="footer-check">✓</span>
+                    <p>
+                        All set. Split fairly, pay confidently,
+                        and enjoy your time together.
+                    </p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="benefits" aria-label="Calculator benefits">
+            <article class="benefit">
+                <span class="benefit-icon" aria-hidden="true">↗</span>
+                <div>
+                    <h3>Instant calculations</h3>
+                    <p>See updated totals as you type.</p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <span class="benefit-icon" aria-hidden="true">÷</span>
+                <div>
+                    <h3>Fair bill splitting</h3>
+                    <p>Know everyone's share in seconds.</p>
+                </div>
+            </article>
+
+            <article class="benefit">
+                <span class="benefit-icon" aria-hidden="true">✓</span>
+                <div>
+                    <h3>No surprises</h3>
+                    <p>Clear totals with tip included.</p>
+                </div>
+            </article>
+        </section>
+
+        <footer class="page-footer">
+            <p>Designed with care by <strong>Sachin Kumar</strong></p>
+            <p>Veda Technology · Web Development Internship · Task 23</p>
+        </footer>
+    </main>
+</body>
+</html>
