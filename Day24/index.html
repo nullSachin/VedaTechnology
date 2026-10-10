@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Play Rock Paper Scissors against the computer with a live running score, round history and win-rate statistics." />
+  <title>Rock Paper Scissors | Task 24</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">RPS</span>
+      <span class="brand-name">Rock Paper Scissors</span>
+    </div>
+    <p class="header-note">Web Development Internship &middot; Task 24</p>
+  </header>
+
+  <main class="layout">
+
+    <!-- ===================== GAME ARENA ===================== -->
+    <section class="arena" aria-labelledby="game-title">
+      <div class="arena-head">
+        <h1 id="game-title">Beat the computer</h1>
+        <p>Choose rock, paper or scissors. The computer picks at random, and the score keeps running until you reset it.</p>
+      </div>
+
+      <!-- Running score -->
+      <div class="scoreboard" aria-label="Running score">
+        <div class="score-cell score-you">
+          <span class="score-label">You</span>
+          <span class="score-value" id="score-player">0</span>
+        </div>
+        <div class="score-cell score-draw">
+          <span class="score-label">Draws</span>
+          <span class="score-value" id="score-draws">0</span>
+        </div>
+        <div class="score-cell score-cpu">
+          <span class="score-label">Computer</span>
+          <span class="score-value" id="score-computer">0</span>
+        </div>
+      </div>
+
+      <!-- Moves on display -->
+      <div class="stage">
+        <div class="fighter fighter-you" id="card-player">
+          <span class="fighter-label">Your move</span>
+          <div class="hand" id="hand-player" aria-hidden="true">?</div>
+          <span class="fighter-name" id="name-player">Waiting</span>
+        </div>
+
+        <span class="versus" aria-hidden="true">vs</span>
+
+        <div class="fighter fighter-cpu" id="card-computer">
+          <span class="fighter-label">Computer's move</span>
+          <div class="hand" id="hand-computer" aria-hidden="true">?</div>
+          <span class="fighter-name" id="name-computer">Waiting</span>
+        </div>
+      </div>
+
+      <!-- Round result -->
+      <p class="result" id="result" role="status" aria-live="polite">Make your move to start the first round.</p>
+
+      <!-- Three choice buttons -->
+      <div class="choices" role="group" aria-label="Choose your move">
+        <button class="choice" type="button" data-choice="rock" aria-label="Rock (press R)">
+          <span class="choice-icon" aria-hidden="true">&#9994;</span>
+          <span class="choice-name">Rock</span>
+          <kbd aria-hidden="true">R</kbd>
+        </button>
+        <button class="choice" type="button" data-choice="paper" aria-label="Paper (press P)">
+          <span class="choice-icon" aria-hidden="true">&#9995;</span>
+          <span class="choice-name">Paper</span>
+          <kbd aria-hidden="true">P</kbd>
+        </button>
+        <button class="choice" type="button" data-choice="scissors" aria-label="Scissors (press S)">
+          <span class="choice-icon" aria-hidden="true">&#9996;&#65039;</span>
+          <span class="choice-name">Scissors</span>
+          <kbd aria-hidden="true">S</kbd>
+        </button>
+      </div>
+
+      <div class="actions">
+        <button class="btn-reset" id="reset" type="button">Reset score</button>
+      </div>
+    </section>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="side" aria-label="Game details">
+
+      <section class="panel">
+        <h2>Statistics</h2>
+        <dl class="stats">
+          <div>
+            <dt>Rounds played</dt>
+            <dd id="stat-rounds">0</dd>
+          </div>
+          <div>
+            <dt>Your win rate</dt>
+            <dd id="stat-rate">&ndash;</dd>
+          </div>
+        </dl>
+        <div class="rate-bar" aria-hidden="true"><span id="rate-fill"></span></div>
+      </section>
+
+      <section class="panel">
+        <h2>Recent rounds</h2>
+        <ol class="history" id="history">
+          <li class="history-empty">No rounds yet. Your last six results will appear here.</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>How to play</h2>
+        <ul class="rules">
+          <li><strong>Rock</strong> crushes scissors</li>
+          <li><strong>Scissors</strong> cut paper</li>
+          <li><strong>Paper</strong> covers rock</li>
+          <li>Same move on both sides is a draw</li>
+        </ul>
+        <p class="tip">Keyboard shortcuts: press <kbd>R</kbd>, <kbd>P</kbd> or <kbd>S</kbd> to play.</p>
+      </section>
+
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with HTML5, CSS3 and JavaScript &middot; Veda Technology Web Development Internship</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
