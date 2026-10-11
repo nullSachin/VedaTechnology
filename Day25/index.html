@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f7fb">
+    <meta name="description" content="Challenge yourself to guess the secret number between 1 and 100 in this interactive number guessing game.">
+    <title>Guess It — Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="Guess It home">
+            <span class="brand-icon" aria-hidden="true">?</span>
+            <span>guess<span class="brand-accent">it.</span></span>
+        </a>
+
+        <div class="topbar-label">
+            <span class="status-dot"></span>
+            INTERACTIVE MINI GAME
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="game-card" aria-labelledby="game-title">
+            <div class="card-top">
+                <span class="eyebrow">THE NUMBER CHALLENGE</span>
+                <span class="range-badge">01 — 100</span>
+            </div>
+
+            <div class="hero">
+                <div class="hero-icon" aria-hidden="true">
+                    <span>?</span>
+                </div>
+
+                <h1 id="game-title">Can you guess it?</h1>
+                <p class="hero-description">
+                    There's a secret number between <strong>1 and 100</strong>.
+                    Make a guess, follow the clues, and find the answer.
+                </p>
+            </div>
+
+            <div class="stats-grid" aria-label="Game statistics">
+                <div class="stat-card">
+                    <span class="stat-label">ATTEMPTS</span>
+                    <strong id="attempt-count">0</strong>
+                    <span class="stat-note">Valid guesses</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">RANGE</span>
+                    <strong>1–100</strong>
+                    <span class="stat-note">Possible numbers</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">BEST RESULT</span>
+                    <strong id="best-score">—</strong>
+                    <span class="stat-note">Fewest attempts</span>
+                </div>
+            </div>
+
+            <form id="guess-form" class="guess-form">
+                <label for="guess-input" class="input-label">
+                    Enter your guess
+                </label>
+
+                <div class="input-row">
+                    <input
+                        type="number"
+                        id="guess-input"
+                        name="guess"
+                        min="1"
+                        max="100"
+                        step="1"
+                        placeholder="e.g. 42"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        required
+                        aria-describedby="input-help feedback"
+                    >
+
+                    <button type="submit" id="guess-button" class="primary-button">
+                        Make a guess
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+
+                <p id="input-help" class="input-help">
+                    Enter a whole number from 1 to 100.
+                </p>
+            </form>
+
+            <div id="feedback" class="feedback" role="status" aria-live="polite">
+                <span class="feedback-icon" aria-hidden="true">✦</span>
+                <div>
+                    <strong id="feedback-title">Ready when you are!</strong>
+                    <p id="feedback-message">
+                        Enter your first guess to begin the challenge.
+                    </p>
+                </div>
+            </div>
+
+            <section class="history-section" aria-labelledby="history-title">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="history-title">Your guesses</h2>
+                        <p>Every attempt brings you closer.</p>
+                    </div>
+                    <span id="guess-total" class="history-count">0 guesses</span>
+                </div>
+
+                <div id="guess-history" class="guess-history">
+                    <p class="empty-history">
+                        Your guesses will appear here.
+                    </p>
+                </div>
+            </section>
+
+            <button type="button" id="new-game-button" class="secondary-button">
+                <span aria-hidden="true">↻</span>
+                Start a new game
+            </button>
+
+            <p class="game-footer">
+                Built with HTML, CSS & JavaScript
+                <span aria-hidden="true">·</span>
+                Made by Sachin Kumar
+            </p>
+        </section>
+
+        <footer class="page-footer">
+            <p>Think smart. Guess wisely. Have fun.</p>
+        </footer>
+    </main>
+</body>
+</html>
