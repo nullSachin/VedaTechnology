@@ -1,0 +1,294 @@
+/* ==========================================================
+   Weather Icon Display | Task 27
+   ========================================================== */
+
+/* Registered colour properties let the scene gradient fade
+   smoothly when the condition changes. Browsers without
+   support simply switch instantly. */
+@property --c1 { syntax: "<color>"; inherits: false; initial-value: #334155; }
+@property --c2 { syntax: "<color>"; inherits: false; initial-value: #1e293b; }
+
+:root {
+  --page: #eef3f9;
+  --surface: #ffffff;
+  --ink: #0f1b2d;
+  --muted: #4d5b72;
+  --line: #d9e1ee;
+  --accent: #1f6feb;
+  --accent-soft: #e6efff;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+
+  --radius-lg: 28px;
+  --radius-md: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--page);
+}
+
+h1, h2 { font-family: var(--font-display); margin: 0; line-height: 1.12; letter-spacing: -0.01em; }
+p { margin: 0; }
+code { font-size: 0.9em; background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; }
+
+/* ==========================================================
+   Header and footer
+   ========================================================== */
+.site-header,
+main,
+.site-footer { width: 100%; max-width: 1140px; margin-inline: auto; }
+
+.site-header {
+  padding: 22px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand-mark { font-size: 1.6rem; line-height: 1; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+.header-note { font-size: 0.95rem; color: var(--muted); }
+
+.site-footer { margin-top: auto; padding: 36px 24px 32px; text-align: center; color: var(--muted); font-size: 0.92rem; }
+
+main { padding: 0 24px; }
+
+/* ==========================================================
+   Hero
+   ========================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 56px 0 40px;
+}
+
+.intro h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); font-weight: 800; }
+.lead { margin-top: 18px; max-width: 46ch; font-size: 1.1rem; color: var(--muted); }
+
+/* ---------- Picker ---------- */
+.picker { margin-top: 30px; max-width: 420px; }
+.picker label { display: block; margin-bottom: 8px; font-weight: 600; }
+
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 15px 46px 15px 18px;
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+select:hover { border-color: #aebbd2; }
+select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(31, 111, 235, 0.22);
+}
+
+.picker-hint { margin-top: 10px; font-size: 0.95rem; color: var(--muted); }
+
+/* ==========================================================
+   Scene (the memorable element)
+   ========================================================== */
+.scene {
+  --c1: #334155;
+  --c2: #1e293b;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 38px 34px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background: linear-gradient(150deg, var(--c1), var(--c2));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 60px -28px rgba(15, 27, 45, 0.55);
+  transition: --c1 0.7s ease, --c2 0.7s ease;
+}
+
+/* soft glow behind the icon */
+.scene::before {
+  content: "";
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 68%);
+  pointer-events: none;
+}
+
+.scene[data-condition="default"]      { --c1: #3d4b61; --c2: #1f2937; }
+.scene[data-condition="sunny"]        { --c1: #c4570a; --c2: #8f3a0c; }
+.scene[data-condition="partly-cloudy"]{ --c1: #2d73d6; --c2: #1b4a9e; }
+.scene[data-condition="cloudy"]       { --c1: #66758c; --c2: #364457; }
+.scene[data-condition="rainy"]        { --c1: #33557f; --c2: #172a47; }
+.scene[data-condition="thunderstorm"] { --c1: #53309a; --c2: #1d1a48; }
+.scene[data-condition="snowy"]        { --c1: #4b83aa; --c2: #284f6e; }
+.scene[data-condition="foggy"]        { --c1: #77706a; --c2: #403b37; }
+.scene[data-condition="windy"]        { --c1: #11766c; --c2: #124841; }
+
+.scene-top { position: relative; display: flex; align-items: center; gap: 22px; }
+
+.scene-icon {
+  font-size: 5.6rem;
+  line-height: 1;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.3));
+}
+.scene-icon.pop { animation: pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1); }
+@keyframes pop {
+  0%   { transform: scale(0.6) rotate(-8deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.scene-title { font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 800; }
+.scene-sub { margin-top: 4px; color: rgba(255, 255, 255, 0.82); font-weight: 500; }
+
+.scene-desc {
+  position: relative;
+  margin-top: 28px;
+  max-width: 48ch;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.readings {
+  position: relative;
+  margin: 30px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+.readings div { padding: 16px 12px 0 0; }
+.readings div + div { padding-left: 18px; border-left: 1px solid rgba(255, 255, 255, 0.28); }
+.readings dt { font-size: 0.92rem; color: rgba(255, 255, 255, 0.82); }
+.readings dd { margin: 2px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 1.45rem; }
+
+.scene-tip {
+  position: relative;
+  margin-top: auto;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   Sections
+   ========================================================== */
+.compare, .how { padding: 40px 0 8px; }
+
+.section-head { max-width: 62ch; margin-bottom: 22px; }
+.section-head h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 700; }
+.section-head p { margin-top: 8px; color: var(--muted); }
+
+/* ---------- Table ---------- */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.compare-table { width: 100%; min-width: 560px; border-collapse: collapse; text-align: left; }
+
+.compare-table th,
+.compare-table td { padding: 15px 20px; }
+
+.compare-table thead th {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.compare-table tbody tr { cursor: pointer; transition: background 0.15s ease; }
+.compare-table tbody tr + tr td { border-top: 1px solid var(--line); }
+.compare-table tbody tr:hover { background: #f4f8ff; }
+.compare-table tbody tr.is-active { background: var(--accent-soft); }
+.compare-table tbody tr:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+
+.cond-cell { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+.cond-icon { font-size: 1.5rem; line-height: 1; }
+
+.note { margin-top: 12px; font-size: 0.92rem; color: var(--muted); }
+
+/* ---------- How it works ---------- */
+.how { padding-bottom: 24px; }
+
+.how-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 32px; align-items: start; }
+
+.codeblock {
+  margin: 0;
+  padding: 22px 24px;
+  overflow-x: auto;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #e4ebf7;
+  background: #12203a;
+  border-radius: 16px;
+}
+.codeblock code { background: none; padding: 0; font-size: inherit; }
+
+.steps { margin: 0; padding-left: 22px; display: grid; gap: 14px; color: var(--muted); }
+.steps strong { color: var(--ink); }
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 36px; }
+  .how-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .site-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  main { padding: 0 16px; }
+  .scene { padding: 28px 22px 24px; min-height: 0; gap: 0; }
+  .scene-icon { font-size: 4rem; }
+  .scene-top { gap: 14px; }
+  .scene-tip { margin-top: 24px; }
+  .readings { grid-template-columns: 1fr; }
+  .readings div, .readings div + div { padding: 12px 0 0; border-left: none; }
+  .compare-table th, .compare-table td { padding: 12px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
