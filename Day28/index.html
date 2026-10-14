@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A flashcard app for web development basics. Flip cards with a 3D animation, move through the deck with next and previous, and track your progress." />
+  <title>Web Dev Flashcards | Task 28</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Web Dev Flashcards">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg>
+      </span>
+      <span class="brand-name">Web Dev Flashcards</span>
+    </a>
+    <p class="header-note">Web Development Internship, Task 28</p>
+  </header>
+
+  <main id="top">
+
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Test what you know about HTML, CSS and JavaScript</h1>
+      <p class="lead">Twelve questions from the basics of web development. Read the question, say your answer out loud, then flip the card to check it.</p>
+    </section>
+
+    <!-- ===================== STUDY AREA ===================== -->
+    <section class="study" aria-label="Flashcard deck">
+
+      <div class="status-row">
+        <p class="progress-text" id="progress-text">Card 1 of 12</p>
+        <p class="order-chip" id="order-chip">Original order</p>
+      </div>
+
+      <div class="progress" id="progress" role="progressbar" aria-label="Deck progress" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1">
+        <span class="progress-fill" id="progress-fill"></span>
+      </div>
+
+      <!-- The card -->
+      <div class="deck">
+        <span class="deck-layer layer-2" aria-hidden="true"></span>
+        <span class="deck-layer layer-1" aria-hidden="true"></span>
+
+        <div class="card" id="card" role="button" tabindex="0" aria-pressed="false" aria-label="Flashcard. Press to reveal the answer.">
+          <div class="card-inner" id="card-inner">
+
+            <div class="face face-front">
+              <span class="topic" id="front-topic">HTML</span>
+              <p class="face-label">Question</p>
+              <h2 class="question" id="front-text">Loading</h2>
+              <p class="face-hint">Click the card or press Space to see the answer</p>
+            </div>
+
+            <div class="face face-back">
+              <span class="topic" id="back-topic">HTML</span>
+              <p class="face-label">Answer</p>
+              <p class="answer" id="back-text">Loading</p>
+              <p class="face-hint">Click again to return to the question</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="controls">
+        <button class="btn btn-nav" id="prev" type="button">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          <span>Previous</span>
+        </button>
+
+        <button class="btn btn-flip" id="flip" type="button">Show answer</button>
+
+        <button class="btn btn-nav" id="next" type="button">
+          <span>Next</span>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="tools">
+        <button class="btn-text" id="shuffle" type="button">Shuffle deck</button>
+        <button class="btn-text" id="reset" type="button">Restore original order</button>
+      </div>
+
+      <!-- Progress dots -->
+      <div class="dots" id="dots" role="group" aria-label="Jump to a card"></div>
+      <p class="deck-message" id="deck-message" role="status" aria-live="polite">Start with the first card. You have studied 1 of 12 so far.</p>
+    </section>
+
+    <!-- ===================== STUDY TIPS ===================== -->
+    <section class="tips" aria-labelledby="tips-title">
+      <h2 id="tips-title">Study tips</h2>
+      <div class="tips-grid">
+        <div>
+          <h3>Answer first</h3>
+          <p>Try to answer from memory before you flip. Recalling an answer helps it stick far better than rereading it.</p>
+        </div>
+        <div>
+          <h3>Shuffle often</h3>
+          <p>A fixed order lets you rely on the sequence. Shuffling forces you to recognise each concept on its own.</p>
+        </div>
+        <div>
+          <h3>Use the keyboard</h3>
+          <p>Press <kbd>Space</kbd> to flip, <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> to move, and <kbd>S</kbd> to shuffle.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="how" aria-labelledby="how-title">
+      <div class="how-text">
+        <h2 id="how-title">How the flip works</h2>
+        <p>The card has two faces stacked in 3D space. Rotating the inner wrapper by 180 degrees on the Y axis turns the front away and brings the back into view. The back face starts already rotated, and <code>backface-visibility: hidden</code> hides whichever side faces away.</p>
+        <p>JavaScript only adds or removes one class. The deck is an array of objects, and a single index in state decides which card is shown.</p>
+      </div>
+
+<pre class="codeblock" aria-label="CSS used for the flip effect"><code>.card       { perspective: 1400px; }
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  backface-visibility: hidden;
+}
+
+.face-back {
+  transform: rotateY(180deg);
+}</code></pre>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with HTML5, CSS3 and JavaScript for the Veda Technology Web Development Internship.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
