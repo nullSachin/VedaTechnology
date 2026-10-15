@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A skills section with animated progress bars that fill to a percentage when they scroll into view. Built with HTML5, CSS3 and JavaScript." />
+  <title>Skills | Sachin, Web Development Intern</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Sachin, home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span class="brand-name">Sachin</span>
+    </a>
+    <p class="header-note">Web Development Internship, Task 29</p>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <h1 id="page-title">Skills that grow with every build</h1>
+        <p class="lead">I am Sachin, a web development intern at Veda Technology. These bars show how I rate my skills today, based on the projects I have built so far. They fill as you scroll, and they change as I learn.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#skills">See my skills</a>
+          <button class="btn btn-ghost" id="replay" type="button">Replay animation</button>
+        </div>
+      </div>
+
+      <dl class="stats" aria-label="Skills summary">
+        <div>
+          <dt>Skills tracked</dt>
+          <dd id="stat-count">&ndash;</dd>
+        </div>
+        <div>
+          <dt>Average level</dt>
+          <dd id="stat-average">&ndash;</dd>
+        </div>
+        <div>
+          <dt>Strongest skill</dt>
+          <dd id="stat-top">&ndash;</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="skills" id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <h2 id="skills-title">My skills</h2>
+        <p>Percentages are my own estimate of my current level, not a test score. Each bar reads its target from a <code>data-level</code> attribute.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Group 1 -->
+        <article class="group group-core">
+          <h3>Frontend core</h3>
+          <p class="group-sub">The three languages every web page is built on.</p>
+          <ul class="skill-list">
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">HTML5</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="HTML5 proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-valuetext="90 percent">
+                <div class="fill" data-level="90"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Semantic markup, forms and accessibility basics</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">CSS3</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="CSS3 proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" aria-valuetext="85 percent">
+                <div class="fill" data-level="85"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Flexbox, Grid, transitions and animations</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="JavaScript proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="75 percent">
+                <div class="fill" data-level="75"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">DOM, events, arrays, objects and state</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">Responsive design</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="Responsive design proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" aria-valuetext="85 percent">
+                <div class="fill" data-level="85"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Mobile-first layouts and media queries</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Group 2 -->
+        <article class="group group-tools">
+          <h3>Tools and workflow</h3>
+          <p class="group-sub">How I build, check and ship my work.</p>
+          <ul class="skill-list">
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">Git and GitHub</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="Git and GitHub proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70 percent">
+                <div class="fill" data-level="70"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Commits, branches and pull requests</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">Chrome DevTools</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="Chrome DevTools proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" aria-valuetext="65 percent">
+                <div class="fill" data-level="65"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Inspecting layout, console and network</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">Debugging</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="Debugging proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70 percent">
+                <div class="fill" data-level="70"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Reading errors and tracing logic</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Group 3 -->
+        <article class="group group-learning">
+          <h3>Currently learning</h3>
+          <p class="group-sub">Skills I am actively working on next.</p>
+          <ul class="skill-list">
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">Accessibility (WCAG)</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="Accessibility proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-valuetext="60 percent">
+                <div class="fill" data-level="60"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Keyboard support, ARIA and colour contrast</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">REST APIs</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="REST APIs proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" aria-valuetext="45 percent">
+                <div class="fill" data-level="45"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">fetch, JSON and handling responses</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+
+            <li class="skill">
+              <div class="skill-head">
+                <span class="skill-name">React</span>
+                <span class="skill-value" aria-hidden="true"><span class="count">0</span>%</span>
+              </div>
+              <div class="track" role="progressbar" aria-label="React proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-valuetext="35 percent">
+                <div class="fill" data-level="35"></div>
+              </div>
+              <div class="skill-foot">
+                <span class="skill-note">Components, props and state</span>
+                <span class="level-tag"></span>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== LEVEL GUIDE ===================== -->
+    <section class="levels" aria-labelledby="levels-title">
+      <div class="section-head">
+        <h2 id="levels-title">How I rate myself</h2>
+        <p>The tag under each bar comes from the percentage, using these four bands.</p>
+      </div>
+      <ol class="level-guide">
+        <li><strong>Beginner</strong><span>Below 40%</span><p>I understand the idea and can follow a tutorial.</p></li>
+        <li><strong>Intermediate</strong><span>40% to 64%</span><p>I can build small features with some help from docs.</p></li>
+        <li><strong>Proficient</strong><span>65% to 84%</span><p>I can build and debug projects on my own.</p></li>
+        <li><strong>Advanced</strong><span>85% and above</span><p>I use it confidently and can explain it to others.</p></li>
+      </ol>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="how" aria-labelledby="how-title">
+      <div class="how-text">
+        <h2 id="how-title">How the animation works</h2>
+        <ol class="steps">
+          <li><strong>Configure.</strong> Each bar stores its target in <code>data-level</code>, so changing a percentage means editing one number.</li>
+          <li><strong>Detect.</strong> An <code>IntersectionObserver</code> notices when a skill scrolls into view.</li>
+          <li><strong>Animate.</strong> JavaScript sets the fill's width, and a CSS <code>transition</code> on <code>width</code> does the smooth movement.</li>
+          <li><strong>Count.</strong> The percentage number counts up in step with the bar.</li>
+        </ol>
+      </div>
+
+<pre class="codeblock" aria-label="Code used to trigger the animation"><code>&lt;div class="fill" data-level="90"&gt;&lt;/div&gt;
+
+.fill {
+  width: 0;
+  transition: width 1.3s ease-out;
+}
+
+const observer = new IntersectionObserver(
+  (entries) =&gt; {
+    entries.forEach((entry) =&gt; {
+      if (!entry.isIntersecting) return;
+      const fill = entry.target.querySelector(".fill");
+      fill.style.width = fill.dataset.level + "%";
+      observer.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.4 }
+);</code></pre>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with HTML5, CSS3 and JavaScript for the Veda Technology Web Development Internship.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

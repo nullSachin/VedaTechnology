@@ -1,0 +1,300 @@
+/* ==========================================================
+   Animated Skill Bars | Task 29
+   ========================================================== */
+:root {
+  --page: #e7eee8;
+  --surface: #ffffff;
+  --ink: #10281f;
+  --muted: #476055;
+  --line: #cfdcd3;
+  --track: #dbe6de;
+  --accent: #0b8f7d;
+  --accent-deep: #07685a;
+
+  --bar-core: linear-gradient(90deg, #0a8b79, #1fbfa6);
+  --bar-tools: linear-gradient(90deg, #c27400, #f2a925);
+  --bar-learning: linear-gradient(90deg, #d84c33, #f68563);
+
+  --font-display: "Syne", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+
+  --fill-duration: 1.3s;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--page);
+}
+
+h1, h2, h3, p, dl, dd, ul, ol { margin: 0; padding: 0; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
+ul, ol { list-style: none; }
+
+code { font-size: 0.88em; background: #d2e5db; padding: 1px 6px; border-radius: 6px; }
+
+/* ==========================================================
+   Header and footer
+   ========================================================== */
+.site-header,
+main,
+.site-footer { width: 100%; max-width: 1120px; margin-inline: auto; }
+
+.site-header {
+  padding: 22px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+.header-note { font-size: 0.95rem; color: var(--muted); }
+
+main { padding: 0 24px; }
+.site-footer { margin-top: auto; padding: 44px 24px 32px; text-align: center; font-size: 0.92rem; color: var(--muted); }
+
+/* ==========================================================
+   Hero
+   ========================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 56px;
+  align-items: center;
+  padding: 64px 0 52px;
+}
+
+.hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.3rem); font-weight: 800; letter-spacing: -0.02em; }
+.lead { margin-top: 22px; max-width: 54ch; font-size: 1.12rem; color: var(--muted); }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  font: 600 1rem var(--font-body);
+  text-decoration: none;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { color: #fff; background: var(--ink); }
+.btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn-ghost { color: var(--ink); background: transparent; }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Stats ---------- */
+.stats { border-top: 2px solid var(--ink); }
+.stats div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.stats dt { color: var(--muted); }
+.stats dd { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); text-align: right; }
+
+/* ==========================================================
+   Skills
+   ========================================================== */
+.skills { padding-top: 24px; scroll-margin-top: 16px; }
+
+.section-head { max-width: 62ch; margin-bottom: 28px; }
+.section-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); font-weight: 800; }
+.section-head p { margin-top: 10px; color: var(--muted); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+/* The first group spans the full width and lays its bars out in two columns */
+.group-core { grid-column: 1 / -1; }
+.group-core .skill-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }
+
+.group {
+  padding: 32px 32px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  --bar: var(--bar-core);
+}
+.group-tools    { --bar: var(--bar-tools); }
+.group-learning { --bar: var(--bar-learning); }
+
+.group h3 { font-size: 1.5rem; font-weight: 700; }
+.group-sub { margin-top: 6px; color: var(--muted); font-size: 0.98rem; }
+
+.skill-list { margin-top: 24px; }
+.skill { padding: 0 0 24px; }
+
+.skill-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
+.skill-name { font-weight: 600; font-size: 1.05rem; }
+.skill-value { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+
+/* ---------- Track and fill ---------- */
+.track {
+  position: relative;
+  height: 14px;
+  background: var(--track);
+  border-radius: 999px;
+}
+
+/* faint ticks at 25%, 50% and 75% make the bar read like a gauge */
+.track::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent calc(25% - 1px), rgba(16, 40, 31, 0.16) calc(25% - 1px) 25%, transparent 25%),
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(16, 40, 31, 0.16) calc(50% - 1px) 50%, transparent 50%),
+    linear-gradient(90deg, transparent calc(75% - 1px), rgba(16, 40, 31, 0.16) calc(75% - 1px) 75%, transparent 75%);
+}
+
+.fill {
+  position: relative;
+  width: 0;
+  height: 100%;
+  background: var(--bar);
+  border-radius: 999px;
+  transition: width var(--fill-duration) cubic-bezier(0.22, 0.8, 0.26, 1);
+}
+
+/* round marker at the end of the fill */
+.fill::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 4px solid var(--ink);
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.35s ease;
+  transition-delay: calc(var(--fill-duration) * 0.85);
+}
+.skill.is-visible .fill::after { transform: translateY(-50%) scale(1); }
+
+.skill-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
+.skill-note { font-size: 0.92rem; color: var(--muted); }
+
+.level-tag {
+  flex-shrink: 0;
+  padding: 1px 11px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  background: #dcefe7;
+  border-radius: 999px;
+}
+
+/* ==========================================================
+   Level guide
+   ========================================================== */
+.levels { padding-top: 64px; }
+
+.level-guide { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
+.level-guide li { display: flex; flex-direction: column; gap: 2px; padding: 18px 20px 6px 0; }
+.level-guide li + li { padding-left: 20px; border-left: 1px solid var(--line); }
+.level-guide strong { font-family: var(--font-display); font-size: 1.15rem; }
+.level-guide span { font-size: 0.92rem; font-weight: 600; color: var(--accent-deep); }
+.level-guide p { margin-top: 6px; font-size: 0.96rem; color: var(--muted); }
+
+/* ==========================================================
+   How it works
+   ========================================================== */
+.how {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: start;
+  padding: 64px 0 16px;
+}
+.how h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); font-weight: 800; margin-bottom: 20px; }
+
+.steps { counter-reset: step; display: grid; gap: 16px; }
+.steps li { position: relative; padding-left: 44px; color: var(--muted); }
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font: 700 0.9rem var(--font-display);
+  color: #fff;
+  background: var(--ink);
+}
+.steps strong { color: var(--ink); }
+
+.codeblock {
+  margin: 0;
+  padding: 24px 26px;
+  overflow-x: auto;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #dcefe7;
+  background: #0d2119;
+  border-radius: 20px;
+}
+.codeblock code { background: none; padding: 0; font-size: inherit; }
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 44px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .group-core .skill-list { grid-template-columns: 1fr; }
+  .how { grid-template-columns: 1fr; }
+  .level-guide { grid-template-columns: repeat(2, 1fr); }
+  .level-guide li:nth-child(3) { padding-left: 0; border-left: none; }
+  .level-guide li:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 12px; }
+}
+
+@media (max-width: 560px) {
+  .site-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+  main { padding: 0 16px; }
+  .group { padding: 24px 20px 10px; border-radius: 20px; }
+  .skill-foot { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .level-guide { grid-template-columns: 1fr; }
+  .level-guide li, .level-guide li + li { padding: 14px 0 6px; border-left: none; margin-top: 0; }
+  .level-guide li + li { border-top: 1px solid var(--line); }
+  .hero-actions .btn { flex: 1 1 100%; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0s !important; animation: none !important; }
+}
