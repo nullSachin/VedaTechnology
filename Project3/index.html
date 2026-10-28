@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ledgerly — a browser-based expense tracker. Add, edit, delete, categorise and filter expenses, with totals and spending summaries saved in your browser.">
+<title>Ledgerly — Expense Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 19V9m7 10V5m7 14v-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand__name">Ledgerly</span>
+    </div>
+    <p class="topbar__tag">Expense tracker</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <h1>Your spending, at a glance</h1>
+    <p>Log every expense, sort it into a category, and see where your money actually goes. Everything is saved in your browser, so it is still here next time you visit.</p>
+  </section>
+
+  <section class="summary" aria-label="Spending summary">
+    <article class="stat stat--primary">
+      <p class="stat__label">Total spent</p>
+      <p class="stat__value" id="statTotal">₹0.00</p>
+      <p class="stat__note" id="statTotalNote">All expenses</p>
+    </article>
+    <article class="stat">
+      <p class="stat__label">Expenses</p>
+      <p class="stat__value" id="statCount">0</p>
+      <p class="stat__note" id="statAverage">No data yet</p>
+    </article>
+    <article class="stat">
+      <p class="stat__label">Largest expense</p>
+      <p class="stat__value" id="statLargest">—</p>
+      <p class="stat__note" id="statLargestNote">&nbsp;</p>
+    </article>
+    <article class="stat">
+      <p class="stat__label">Top category</p>
+      <p class="stat__value stat__value--text" id="statTopCategory">—</p>
+      <p class="stat__note" id="statTopCategoryNote">&nbsp;</p>
+    </article>
+  </section>
+
+  <div class="layout">
+
+    <aside class="side">
+
+      <section class="card" id="formCard">
+        <div class="card__head">
+          <h2 id="formTitle">Add expense</h2>
+          <span class="badge" id="editBadge" hidden>Editing</span>
+        </div>
+
+        <form id="expenseForm" novalidate>
+          <div class="field">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" placeholder="e.g. Groceries at the market" maxlength="80" autocomplete="off">
+            <p class="field__error" data-error-for="description"></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="amount">Amount (₹)</label>
+              <input type="number" id="amount" name="amount" inputmode="decimal" placeholder="0.00" min="0.01" step="0.01">
+              <p class="field__error" data-error-for="amount"></p>
+            </div>
+            <div class="field">
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date">
+              <p class="field__error" data-error-for="date"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category" name="category"></select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary" id="submitBtn">Add expense</button>
+            <button type="button" class="btn btn--ghost" id="cancelEditBtn" hidden>Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card__head">
+          <h2>Spending by category</h2>
+        </div>
+        <ul class="breakdown" id="breakdownList"></ul>
+        <p class="muted" id="breakdownEmpty">Add an expense to see how your spending is split.</p>
+      </section>
+
+    </aside>
+
+    <section class="main">
+
+      <section class="card filters" aria-label="Filters and sorting">
+        <div class="field">
+          <label for="filterCategory">Category</label>
+          <select id="filterCategory"></select>
+        </div>
+        <div class="field">
+          <label for="filterFrom">From</label>
+          <input type="date" id="filterFrom">
+        </div>
+        <div class="field">
+          <label for="filterTo">To</label>
+          <input type="date" id="filterTo">
+        </div>
+        <div class="field">
+          <label for="sortBy">Sort by</label>
+          <select id="sortBy">
+            <option value="date-desc">Newest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="amount-desc">Highest amount</option>
+            <option value="amount-asc">Lowest amount</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn--ghost btn--small" id="clearFiltersBtn">Clear filters</button>
+        <p class="filters__hint" id="filterHint" hidden>The “From” date is after the “To” date, so nothing can match.</p>
+      </section>
+
+      <section class="card list-card">
+        <div class="card__head">
+          <h2>Expenses</h2>
+          <span class="muted" id="listCount">0 items</span>
+        </div>
+
+        <ul class="expense-list" id="expenseList"></ul>
+
+        <div class="empty" id="emptyState" hidden>
+          <div class="empty__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="9" y="8" width="30" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M16 18h16M16 25h16M16 32h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <p class="empty__title" id="emptyTitle">No expenses yet</p>
+          <p class="empty__text" id="emptyText">Add your first expense using the form to get started.</p>
+          <button type="button" class="btn btn--ghost btn--small" id="sampleBtn">Load sample data</button>
+        </div>
+      </section>
+
+    </section>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Ledgerly · Interactive Expense Tracker · Web Development Internship Project</p>
+  </div>
+</footer>
+
+<!-- Delete confirmation -->
+<dialog id="confirmDialog" aria-labelledby="confirmTitle">
+  <form method="dialog" class="dialog">
+    <h3 id="confirmTitle">Delete this expense?</h3>
+    <p id="confirmText">This cannot be undone.</p>
+    <div class="dialog__actions">
+      <button type="submit" value="cancel" class="btn btn--ghost">Keep it</button>
+      <button type="submit" value="delete" class="btn btn--danger" id="confirmDeleteBtn">Delete</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- One expense row -->
+<template id="expenseTemplate">
+  <li class="expense" data-id="">
+    <div class="expense__main">
+      <p class="expense__title"></p>
+      <p class="expense__meta"><span class="expense__category"></span> · <time class="expense__date"></time></p>
+    </div>
+    <p class="expense__amount"></p>
+    <div class="expense__actions">
+      <button type="button" class="icon-btn" data-action="edit" aria-label="Edit expense">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M12.5 4.5l3 3M4 16l.7-3.3L13.4 4a1.4 1.4 0 0 1 2 0l.6.6a1.4 1.4 0 0 1 0 2l-8.7 8.7L4 16z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--danger" data-action="delete" aria-label="Delete expense">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M4.5 6h11M8 6V4.5h4V6M6 6l.6 9.5h6.8L14 6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </li>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
